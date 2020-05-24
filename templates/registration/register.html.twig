@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Регистрация{% endblock %}
+{% block head %}
+    {{ parent() }}
+    {% block head_css %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('media/styles/form.css') }}"/>
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    <header>
+        {% block header %}
+            {{ parent() }}
+        {% endblock %}
+    </header>
+
+    <div class="register container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-lg-8 col-lg-offset-2">
+
+                <h1 class="registerTitle text-center">Регистрация</h1>
+
+                <div class="controls">
+                    {{ form_start(registrationForm) }}
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_label(registrationForm.name,'Имя') }}
+                                {{ form_widget(registrationForm.name, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(registrationForm.name) }}
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_label(registrationForm.email,'Email') }}
+                                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(registrationForm.email) }}
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_label(registrationForm.plainPassword,'Пароль') }}
+                                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(registrationForm.plainPassword) }}
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input', 'value':'yes'}}) }}
+                                    {{ form_label(registrationForm.agreeTerms,'Разрешаю обработку
+                                        персональных данных', {'attr': {'class': 'form-check-labe'}}) }}
+                                    {{ form_errors(registrationForm.agreeTerms) }}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                        <div class="butRegister col-md-12">
+                            <input type="submit" class="btn btn-outline-dark" name="register"
+                                   value="Зарегистрироваться">
+                        </div>
+
+                    </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+    <footer>
+        {% block footer %}
+            {{ parent() }}
+        {% endblock %}
+    </footer>
+{% endblock %}

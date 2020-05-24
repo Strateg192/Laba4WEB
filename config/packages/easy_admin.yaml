@@ -1,0 +1,14 @@
+easy_admin:
+    entities:
+        Post:
+            class: App\Entity\Post
+        Comment:
+            class: App\Entity\Comment
+        User:
+            class: App\Entity\User
+            form:
+                fields:
+                    - 'id'
+                    - { property: 'email', type: 'email', type_options: { trim: true } }
+                    - { property: 'password', type: 'text'}
+                    - { property: 'roles', type: 'choice', type_options: { expanded: true, multiple: true, choices: { 'Normal user': 'ROLE_USER', 'Administrator': 'ROLE_ADMIN' } } }

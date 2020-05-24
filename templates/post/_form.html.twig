@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+	{{ form_label(form.name,'Название') }}
+    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.name) }}
+						   
+	{{ form_label(form.text,'Текст') }}
+    {{ form_widget(form.text, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.text) }}
+    <button class="btn btn-outline-dark">{{ button_label|default('Создать') }}</button>
+{{ form_end(form) }}

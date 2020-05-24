@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+{% block body %}
+	<header>
+        {% block header %}
+            {{ include('header.html.twig') }}
+        {% endblock %}
+    </header>
+
+    <h1>Пост</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Название</th>
+                <td>{{ post.name }}</td>
+            </tr>
+            <tr>
+                <th>Дата добавления</th>
+                <td>{{ post.dateAdded ? post.dateAdded|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Содержимое поста</th>
+                <td class="tdText">{{ post.text }}</td>
+            </tr>
+            <tr>
+                <th>Количество просмотров</th>
+                <td>{{ post.countViews }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-dark" href="{{ path('post_index') }}">Назад</a>
+	
+	{{ include('comment/index.html.twig') }}
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {{ include('comment/new.html.twig') }}
+    {% endif %}
+	
+    <footer>
+        {% block footer %}
+            {{ include('footer.html.twig') }}
+        {% endblock %}
+    </footer>
+{% endblock %}

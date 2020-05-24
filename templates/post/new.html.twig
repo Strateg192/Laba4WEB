@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Создание поста{% endblock %}
+
+{% block body %}
+	<header>
+        {% block header %}
+            {{ include('header.html.twig') }}
+        {% endblock %}
+    </header>
+
+    <h1>Создание поста</h1>
+
+    {{ include('post/_form.html.twig') }}
+
+    <a class="btn btn-outline-dark" href="{{ path('post_index') }}">Назад</a>
+	
+    <footer>
+        {% block footer %}
+            {{ include('footer.html.twig') }}
+        {% endblock %}
+    </footer>
+{% endblock %}

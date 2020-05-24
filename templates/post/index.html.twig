@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Все посты{% endblock %}
+
+{% block body %}
+
+	<header>
+        {% block header %}
+            {{ include('header.html.twig') }}
+        {% endblock %}
+    </header>
+
+    <h1>Все посты</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Дата добавления</th>
+                <th>Содержание поста</th>
+                <th>Количество просмотров</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td><a href="{{ path('post_show', {'id': post.id}) }}">{{ post.name }}</a></td>
+                <td>{{ post.dateAdded ? post.dateAdded|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ post.text |slice(0,20) }}</td>
+                <td>{{ post.countViews }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+	
+	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <a class="btn btn-outline-dark" href="{{ path('post_new') }}">Создать</a
+	{% endif %}
+    <footer>
+        {% block footer %}
+            {{ include('footer.html.twig') }}
+        {% endblock %}
+    </footer>
+	
+{% endblock %}

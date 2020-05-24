@@ -1,0 +1,35 @@
+{% block body %}
+    <div class="container-fluid headerTitle">
+        <div class="row headerTitle">
+            <div class="col-10 headPanel">
+                <a class="titleWeb navbar-brand" href="{{ path('default') }}"><h1>Главная</h1></a>
+                <a class="butPanel navbar-brand" href="{{ path('about') }}"><h3>Описание</h3></a>
+				<a class="butPanel navbar-brand" href="{{ path('post_index') }}"><h3>Блог</h3></a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="butPanel navbar-brand" href="/admin"><h3>Админ панель</h3></a>
+                {% endif %}
+            </div>
+            <div class="col">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <form class="listBut link-auth-reg form-inline  my-2 my-lg-0" action="/" method="get">
+                        <div class="infoUser">
+                            Вашe имя: {{ app.user.name }}<br>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                Ваш статус: админ
+                            {% else %}
+                                Ваш статус: пользователь
+                            {% endif %}
+                        </div>
+                        <a class="btn btn-light my-2 my-sm-0" href="{{ path('app_logout') }}">Выйти</a>
+                    </form>
+                {% else %}
+                    <form class="listBut ">
+                        <a class="btn btn-light my-2 my-sm-0" type="submit" href="/login">Войти</a>
+                        <a class="btn btn-light my-2 my-sm-0" type="submit" href="/register">Регистрация</a>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

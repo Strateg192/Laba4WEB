@@ -1,0 +1,37 @@
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="titleComment">Комментарии</h1>
+            </div>
+        </div>
+
+
+        {% for comment in comments %}
+            <div class="oneComment">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="authorComment">
+                            Автор: {{ comment.userFk }}
+                        </div>
+                        <div class="dateAddedComment">
+                            Дата: {{ comment.dateAdded ? comment.dateAdded|date('Y-m-d H:i:s') : '' }}
+                        </div>
+                    </div>
+                </div>
+                <div class="border-dark shadow p-3 mb-5 bg-white">
+                    <div class="row">
+                        <div class="col">
+                            <div class="textTopic">
+                                {{ comment.text }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </br>
+        {% else %}
+            Комментарии отсутствуют
+        {% endfor %}
+    </div>
+{% endblock %}

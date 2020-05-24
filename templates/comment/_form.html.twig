@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+<div class="container">
+    <div class="commentForm">
+        <div class="row">
+            <div class="col">
+                {{ form_label(form.text,'Ответ:') }}
+                {{ form_widget(form.text, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.text) }}
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="col text-right">
+                <button class="btn btn-outline-dark">{{ button_label|default('Отправить') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}
