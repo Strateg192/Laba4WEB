@@ -1,0 +1,12 @@
+.background_base{
+    padding-top: 50px;
+    padding-bottom: 600px;
+    background-image: url(/media/img/supImg.jpg);
+    min-height: 1000px;
+}
+.table {
+	width: 100%;
+}
+.tdText {
+	word-break: break-all;
+}

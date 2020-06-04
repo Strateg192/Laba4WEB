@@ -1,0 +1,32 @@
+header {
+    text-align: center;
+    background: #969696;
+    padding: 20px;
+}
+.headPanel {
+    text-align: left;
+}
+
+.titleWeb {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.titleWeb:hover {
+    text-decoration: none;
+    color: #727272;
+}
+
+.butPanel {
+    text-decoration: none;
+    color: #000000;
+}
+
+.butPanel:hover {
+    text-decoration: none;
+    color: #727272;
+}
+
+.infoUser {
+    margin-right: 10px;
+}

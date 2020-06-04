@@ -1,0 +1,12 @@
+.titleContent {
+    font-size: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.content {
+    font-size: 20px;
+    margin-bottom:20px;
+    text-align: justify;
+}
